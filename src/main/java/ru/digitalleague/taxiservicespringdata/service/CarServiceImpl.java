@@ -2,13 +2,14 @@ package ru.digitalleague.taxiservicespringdata.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.digitalleague.taxiservicespringdata.api.CarService;
 import ru.digitalleague.taxiservicespringdata.model.Car;
 import ru.digitalleague.taxiservicespringdata.repository.CarRepository;
 
 import java.util.Optional;
 
 @Service
-public class CarServiceImpl implements CarService{
+public class CarServiceImpl implements CarService {
 
     @Autowired
     CarRepository carRepository;

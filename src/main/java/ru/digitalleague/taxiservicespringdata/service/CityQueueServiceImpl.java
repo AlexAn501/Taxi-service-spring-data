@@ -1,8 +1,8 @@
 package ru.digitalleague.taxiservicespringdata.service;
 
-import antlr.CharQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.digitalleague.taxiservicespringdata.api.CityQueueService;
 import ru.digitalleague.taxiservicespringdata.model.CityQueue;
 import ru.digitalleague.taxiservicespringdata.repository.CityQueueRepository;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CityQueueServiceImpl implements CityQueueService{
+public class CityQueueServiceImpl implements CityQueueService {
     @Autowired
     CityQueueRepository cityQueueRepository;
 

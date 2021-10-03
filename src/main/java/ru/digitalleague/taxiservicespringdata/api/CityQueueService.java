@@ -1,4 +1,4 @@
-package ru.digitalleague.taxiservicespringdata.service;
+package ru.digitalleague.taxiservicespringdata.api;
 
 import ru.digitalleague.taxiservicespringdata.model.CityQueue;
 

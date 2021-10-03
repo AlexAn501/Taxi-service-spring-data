@@ -3,7 +3,7 @@ package ru.digitalleague.taxiservicespringdata.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.digitalleague.taxiservicespringdata.model.TaxiDriveInfo;
-import ru.digitalleague.taxiservicespringdata.service.TaxiDriveInfoService;
+import ru.digitalleague.taxiservicespringdata.api.TaxiDriveInfoService;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package ru.digitalleague.taxiservicespringdata.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import ru.digitalleague.taxiservicespringdata.model.Car;
-import ru.digitalleague.taxiservicespringdata.service.CarService;
+import ru.digitalleague.taxiservicespringdata.api.CarService;
 
 
 @RestController
