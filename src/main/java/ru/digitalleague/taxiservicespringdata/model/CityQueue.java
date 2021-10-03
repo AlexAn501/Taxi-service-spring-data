@@ -8,7 +8,7 @@ public class CityQueue {
 
     @Id
     @Column(name = "city_id")
-    @SequenceGenerator(name = "city_queue_seq",sequenceName = "city_queue_seq",schema = "taxi_service", allocationSize = 1)
+    @SequenceGenerator(name = "city_queue_seq",sequenceName = "city_queue_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "city_queue_seq")
     private long cityId;
 
@@ -22,12 +22,6 @@ public class CityQueue {
 //    Constructors
     public CityQueue() {
     }
-
-    public CityQueue(String name, String queue) {
-        this.name = name;
-        this.queue = queue;
-    }
-
 
 //    Getters and Setters
     public long getCityId() {

@@ -9,7 +9,7 @@ public class Car {
 
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "car_seq",sequenceName = "car_seq",schema = "taxi_service", allocationSize = 1)
+    @SequenceGenerator(name = "car_seq",sequenceName = "car_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "car_seq")
     private long id;
 
@@ -21,11 +21,6 @@ public class Car {
 
 //     Constructors
     public Car() {
-    }
-
-    public Car( String model, Date createDttm) {
-        this.model = model;
-        this.createDttm = createDttm;
     }
 
 //     Getters and Setters

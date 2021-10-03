@@ -9,8 +9,8 @@ public class TaxiDriveInfo {
 
     @Id
     @Column(name = "driver_id")
-    @SequenceGenerator(name = "taxi_driver_seq",sequenceName = "taxi_driver_seq",schema = "taxi_service", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "taxi_driver_seq")
+    @SequenceGenerator(name = "taxi_driver_seq",sequenceName = "taxi_driver_seq", allocationSize = 1)
     private long id;
 
     @Column(name = "last_name")
@@ -30,14 +30,6 @@ public class TaxiDriveInfo {
 
     //    Constructors
     public TaxiDriveInfo() {
-    }
-
-    public TaxiDriveInfo(String lastName, String firstName, int level, String carModel, Date createDttm) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.level = level;
-        this.carModel = carModel;
-        this.createDttm = createDttm;
     }
 
     //     Getters and Setters
