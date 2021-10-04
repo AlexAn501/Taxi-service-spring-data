@@ -17,11 +17,7 @@ public class CityQueueServiceImpl implements CityQueueService {
     @Override
     public CityQueue getCityQueue(long id) {
         Optional<CityQueue> optionalCityQueue = cityQueueRepository.findById(id);
-        if(optionalCityQueue.isPresent()){
-            return optionalCityQueue.get();
-        }
-        else
-            throw new RuntimeException("This cityQueue does not exist");
+        return optionalCityQueue.orElse(null);
     }
 
     @Override

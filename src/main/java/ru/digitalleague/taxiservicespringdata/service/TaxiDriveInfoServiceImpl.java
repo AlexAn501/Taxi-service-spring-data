@@ -18,11 +18,7 @@ public class TaxiDriveInfoServiceImpl implements TaxiDriveInfoService {
     @Override
     public TaxiDriveInfo getTaxiDriveInfo(long id) {
         Optional<TaxiDriveInfo> optionalTaxiDriveInfo = taxiDriveInfoRepository.findById(id);
-        if (optionalTaxiDriveInfo.isPresent()) {
-            return optionalTaxiDriveInfo.get();
-        } else {
-            throw new RuntimeException("This TaxiDriver does not exist");
-        }
+        return optionalTaxiDriveInfo.orElse(null);
     }
 
     @Override

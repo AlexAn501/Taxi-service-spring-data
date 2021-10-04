@@ -17,12 +17,7 @@ public class CarServiceImpl implements CarService {
     @Override
     public Car getCar(long id) {
         Optional<Car> carOptional = carRepository.findById(id);
-        if(carOptional.isPresent()){
-            return carOptional.get();
-        }
-        else {
-            throw new RuntimeException("This car does not exist");
-        }
+        return carOptional.orElse(null);
     }
 
     @Override

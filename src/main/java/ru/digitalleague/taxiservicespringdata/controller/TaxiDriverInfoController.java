@@ -2,6 +2,7 @@ package ru.digitalleague.taxiservicespringdata.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import ru.digitalleague.taxiservicespringdata.exception_handling.NoSuchEntityException;
 import ru.digitalleague.taxiservicespringdata.model.TaxiDriveInfo;
 import ru.digitalleague.taxiservicespringdata.api.TaxiDriveInfoService;
 
@@ -14,6 +15,10 @@ public class TaxiDriverInfoController {
 
     @GetMapping("/taxi_driver_info/{id}")
     public TaxiDriveInfo getCityQueue(@PathVariable long id){
+        TaxiDriveInfo taxiDriveInfo = taxiDriveInfoService.getTaxiDriveInfo(id);
+        if(taxiDriveInfo == null){
+            throw new NoSuchEntityException(String.format("Taxi driver with ID = %d does not exist", id));
+        }
         return taxiDriveInfoService.getTaxiDriveInfo(id);
     }
 

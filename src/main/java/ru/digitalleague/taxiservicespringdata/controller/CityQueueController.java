@@ -1,7 +1,11 @@
 package ru.digitalleague.taxiservicespringdata.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.digitalleague.taxiservicespringdata.exception_handling.EntityIncorrectData;
+import ru.digitalleague.taxiservicespringdata.exception_handling.NoSuchEntityException;
 import ru.digitalleague.taxiservicespringdata.model.CityQueue;
 import ru.digitalleague.taxiservicespringdata.api.CityQueueService;
 
@@ -15,7 +19,11 @@ public class CityQueueController {
 
     @GetMapping("/cities/{id}")
     public CityQueue getCityQueue(@PathVariable long id){
-        return cityQueueService.getCityQueue(id);
+        CityQueue cityQueue = cityQueueService.getCityQueue(id);
+        if(cityQueue == null){
+            throw new NoSuchEntityException(String.format("Taxi station with ID = %d does not exist", id));
+        }
+        return cityQueue;
     }
 
     @PostMapping("/cities")
