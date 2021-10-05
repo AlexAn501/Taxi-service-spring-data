@@ -6,6 +6,7 @@ import ru.digitalleague.taxiservicespringdata.api.CarService;
 import ru.digitalleague.taxiservicespringdata.model.Car;
 import ru.digitalleague.taxiservicespringdata.repository.CarRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,4 +30,11 @@ public class CarServiceImpl implements CarService {
     public void deleteCar(long id) {
         carRepository.deleteById(id);
     }
+
+    @Override
+    public List<Car> getAllCar() {
+        return carRepository.findAll();
+    }
+
+
 }

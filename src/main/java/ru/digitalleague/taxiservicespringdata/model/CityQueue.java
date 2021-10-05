@@ -8,8 +8,8 @@ public class CityQueue {
 
     @Id
     @Column(name = "city_id")
-    @SequenceGenerator(name = "city_queue_seq",sequenceName = "city_queue_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "city_queue_seq")
+    @SequenceGenerator(name = "city_queue_seq", sequenceName = "city_queue_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "city_queue_seq")
     private long cityId;
 
 
@@ -19,11 +19,11 @@ public class CityQueue {
     @Column(name = "queue")
     private String queue;
 
-//    Constructors
+    //    Constructors
     public CityQueue() {
     }
 
-//    Getters and Setters
+    //    Getters and Setters
     public long getCityId() {
         return cityId;
     }

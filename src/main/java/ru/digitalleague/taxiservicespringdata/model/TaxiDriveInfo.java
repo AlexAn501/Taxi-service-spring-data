@@ -9,8 +9,8 @@ public class TaxiDriveInfo {
 
     @Id
     @Column(name = "driver_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "taxi_driver_seq")
-    @SequenceGenerator(name = "taxi_driver_seq",sequenceName = "taxi_driver_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "taxi_driver_seq")
+    @SequenceGenerator(name = "taxi_driver_seq", sequenceName = "taxi_driver_seq", allocationSize = 1)
     private long id;
 
     @Column(name = "last_name")

@@ -18,35 +18,35 @@ public class CityQueueController {
     private CityQueueService cityQueueService;
 
     @GetMapping("/cities/{id}")
-    public CityQueue getCityQueue(@PathVariable long id){
+    public CityQueue getCityQueue(@PathVariable long id) {
         CityQueue cityQueue = cityQueueService.getCityQueue(id);
-        if(cityQueue == null){
+        if (cityQueue == null) {
             throw new NoSuchEntityException(String.format("Taxi station with ID = %d does not exist", id));
         }
         return cityQueue;
     }
 
     @PostMapping("/cities")
-    public CityQueue addNewCityQueue(@RequestBody CityQueue cityQueue){
+    public CityQueue addNewCityQueue(@RequestBody CityQueue cityQueue) {
         cityQueueService.saveOrUpdateCityQueue(cityQueue);
         return cityQueue;
     }
 
     @PutMapping("/cities")
-    public CityQueue updateCityQueue(@RequestBody CityQueue cityQueue){
+    public CityQueue updateCityQueue(@RequestBody CityQueue cityQueue) {
         cityQueueService.saveOrUpdateCityQueue(cityQueue);
         return cityQueue;
     }
 
     @DeleteMapping("/cities/{id}")
-    public String deleteCityQueue(@PathVariable long id){
+    public String deleteCityQueue(@PathVariable long id) {
         cityQueueService.getCityQueue(id);
         cityQueueService.deleteCityQueue(id);
         return String.format("CityQueue with ID = %d was deleted", id);
     }
 
     @GetMapping("/cities")
-    public List<CityQueue> getAllCitiesQueue(){
+    public List<CityQueue> getAllCitiesQueue() {
         return cityQueueService.getAllCityQueue();
     }
 }

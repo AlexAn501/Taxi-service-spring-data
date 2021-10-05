@@ -1,6 +1,10 @@
 package ru.digitalleague.taxiservicespringdata.model;
 
+import ru.digitalleague.taxiservicespringdata.exception_handling.UnparseableDateException;
+
 import javax.persistence.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -9,8 +13,8 @@ public class Car {
 
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name = "car_seq",sequenceName = "car_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "car_seq")
+    @SequenceGenerator(name = "car_seq", sequenceName = "car_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "car_seq")
     private long id;
 
     @Column(name = "model")
@@ -19,11 +23,11 @@ public class Car {
     @Column(name = "createdttm")
     private Date createDttm;
 
-//     Constructors
+    //     Constructors
     public Car() {
     }
 
-//     Getters and Setters
+    //     Getters and Setters
     public long getId() {
         return id;
     }
@@ -44,7 +48,13 @@ public class Car {
         return createDttm;
     }
 
-    public void setCreateDttm(Date createDttm) {
-        this.createDttm = createDttm;
+    public void setCreateDttm(String createDttm) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            this.createDttm = df.parse(createDttm);
+        } catch (ParseException exception) {
+            throw new UnparseableDateException(
+                    String.format("Incorrect date format %s, expected format yyyy-MM-dd", createDttm));
+        }
     }
 }

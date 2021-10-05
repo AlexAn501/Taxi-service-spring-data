@@ -21,7 +21,7 @@ public class CityQueueServiceImpl implements CityQueueService {
     }
 
     @Override
-    public void saveOrUpdateCityQueue(CityQueue cityQueue){
+    public void saveOrUpdateCityQueue(CityQueue cityQueue) {
         cityQueueRepository.save(cityQueue);
     }
 
